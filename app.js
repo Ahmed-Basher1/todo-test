@@ -28,7 +28,8 @@ app.use(
   app.use(helmet());
   app.use(cors());
   app.use(xss());
-
+  app.use(morgan('tiny'));
+  
   app.use('/api/v1/auth', authRouter);
   app.use('/api/v1/user', userRouter);
   app.use(errorHandlerMiddleware);
