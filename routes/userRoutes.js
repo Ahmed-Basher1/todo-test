@@ -5,8 +5,6 @@ const {
   authorizePermissions,
 } = require('../middleware/authentication');
 const {
-  getAllUsers,
-  getSingleUser,
   createTodo,
   getUserTodos,
   updateTodo,

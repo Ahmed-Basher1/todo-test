@@ -6,7 +6,6 @@ const { authenticateUser } = require('../middleware/authentication');
 const {
   register,
   login,
-  logout,
   verifyEmail,
 } = require('../controller/authController');
 
