@@ -37,11 +37,11 @@ const UserSchema =  new mongoose.Schema({
       verified: Date,
 })
 
-UserSchema.pre( async function (){
-    if(!this.isModified('password')) return;
-    const salt = await bcrypt.genSalt(10);
-    this.password =  await bcrypt.hash(this.password,salt)
-})
+UserSchema.pre('save', async function () {
+  if (!this.isModified('password')) return;
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
 
 UserSchema.methods.comparePassword = async function (canditatePassword) {
     const isMatch = await bcrypt.compare(canditatePassword, this.password);
@@ -49,4 +49,4 @@ UserSchema.methods.comparePassword = async function (canditatePassword) {
   };
 
 
-  module.exports = mongoose.model('users',UserSchema)
+  module.exports = mongoose.model('User',UserSchema)
