@@ -2,7 +2,6 @@ const User = require('../model/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const {
-  attachCookiesToResponse,
   createTokenUser,
   genterOTP,
   sendVerificationEmail,
